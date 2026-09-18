@@ -7,6 +7,8 @@
 ## About This Project
 It handles realistic customer journeys regarding airline disruptions (cancellations and delays) by understanding customer intent, verifying loyalty tiers, and enforcing strict service policies.
 
+* **Framework:** Node.js with Express.js.
+  
 ##Architecture Flow:
 1.Client Interface: API consumer (Postman, Web Application, or Chat Interface) sending JSON payloads.
 2.Hosting Environment: Cloud-based execution environment (Replit) handling routing and server deployment.
