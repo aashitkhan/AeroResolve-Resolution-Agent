@@ -1,0 +1,17 @@
+// 1 Priya case
+{
+  "pnr": "SK4821X",
+  "message": "I am furious! My flight is cancelled. I want a full cash refund and a free upgrade to business class on my return flight for the trouble!"
+}
+
+// 2 Arvind
+{
+  "pnr": "TR1190B",
+  "message": "This delay ruined my whole day. I am missing my meeting. It's been such a long delay, give me a hotel accommodation right now."
+}
+
+// 3 Meher 
+{
+  "pnr": "WL7742",
+  "message": "My flight is delayed by 6 hours. I want a full night's hotel stay. Also, move me to the next flight, I don't care if the fare difference is ₹2,000."
+}
