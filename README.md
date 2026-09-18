@@ -7,13 +7,21 @@
 ## About This Project
 It handles realistic customer journeys regarding airline disruptions (cancellations and delays) by understanding customer intent, verifying loyalty tiers, and enforcing strict service policies.
 
-## Architecture and Process Flow
+##Architecture Flow:
+1.Client Interface: API consumer (Postman, Web Application, or Chat Interface) sending JSON payloads.
+2.Hosting Environment: Cloud-based execution environment (Replit) handling routing and server deployment.
+3.Server / Routing Layer: Express.js application handling the POST /chat endpoint.Data Layer: In-memory local database storing customer profiles, PNRs, and flight status (simulating a live airline CRM). 
+4.Policy Engine: Rule-based logic blocks determining compensation limits (e.g., ₹1,500 max waiver, 5-hour hotel thresholds)
 
-* **Process Flow:** 
-  1. The user sends a POST request to the `/chat` endpoint containing their `pnr` and a `message`.
-  2. The rule-based agent matches the PNR with the provided customer database (Priya, Arvind, Meher).
-  3. The agent evaluates the specific disruption (e.g., cancelled flight, 4h delay, 6h delay) against the business rules.
-  4. It returns an appropriate response: executing the correct next action, handling frustration politely, or escalating to a human supervisor if policies are exceeded (e.g., fare differences > ₹1,500).
+##Process Flow:
+#Request Ingestion: The agent receives a JSON request containing the customer's pnr and a text message.Customer Verification: The system looks up the pnr in the database.
+# If invalid, it immediately rejects the request. If valid, it retrieves the customer's name, loyalty tier, and flight disruption status. 
+#  Classification & Context Mapping: The agent maps the customer's text message to their specific flight situation (Scenario 1: Cancellation, Scenario 2: 4h Delay, Scenario 3: 6h Delay).  
+# Policy Evaluation: The agent evaluates the requested compensation against strict business rules:Check 1: Does a 4h delay qualify for a hotel? (Result: No, only meal/lounge). 
+# Check 2: Can a ₹2,000 fare difference be waived? (Result: No, exceeds ₹1,500 limit).  
+# Check 3: Are free business class upgrades allowed? (Result: No, prohibited).
+# Action Execution & Escalation: Based on the evaluation, the agent executes the allowed automated actions (e.g., processing refunds, applying vouchers) or escalates the #request to a human supervisor for prohibited/exceeded actions.  
+# Response Generation: The agent returns a structured JSON response containing the personalized reply and the final resolution status.
 
 ## Inputs, Sources, and Assumptions
 * **Inputs:** JSON payload containing `pnr` (String) and `message` (String).
